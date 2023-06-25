@@ -8,20 +8,15 @@ function getDataInfo(url) {
         })
     }).then(res => {
         if (res.data.data.post.videos) {
-            let videos = []
             let keyList = Object.keys(res.data.data.post.videos)
-            for (let i = 0; i < keyList.length; i++) {
-                let url = res.data.data.post.videos[keyList[i]].url
-                videos.push(url)
-            }
             return {
                 code: 0, message: '最右视频解析成功', data: {
                     title: res.data.data.post.content,
                     author: res.data.data.post.member.name,
                     avatar: res.data.data.post.member.avatar_urls.origin.urls[0],
-                    cover: '无',
+                    cover: res.data.data.post.imgs[0].urls.origin?.urls[0] || res.data.data.post.imgs[0].urls['540'].urls[0],
                     music: '无',
-                    videos: videos
+                    video: res.data.data.post.videos[keyList[0]].url
                 }
             }
         } else if (res.data.data.post.imgs) {

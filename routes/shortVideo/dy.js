@@ -55,7 +55,7 @@ function getDataInfo(url, msToken, ttWid) {
                     avatar: res.data.aweme_detail.author.avatar_thumb.url_list[0],
                     cover: res.data.aweme_detail.video.origin_cover.url_list[0],
                     music: res.data.aweme_detail.music.play_url.url_list[0],
-                    video: [res.data.aweme_detail.video.play_addr.url_list[0]],
+                    video: res.data.aweme_detail.video.play_addr.url_list[0]
                 },
             };
         } else if (res.data.aweme_detail.images) {

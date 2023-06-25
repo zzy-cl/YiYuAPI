@@ -25,7 +25,7 @@ function getDataInfo(id) {
                     avatar: res.data.data.data.item.author.avatar.url_list[0].url,
                     cover: res.data.data.data.item.cover.url_list[0].url,
                     music: '无',
-                    video: [res.data.data.data.item.origin_video_download.url_list[0].url]
+                    video: res.data.data.data.item.origin_video_download.url_list[0].url
                 }
             }
         } else if (res.data.data.data.item.note) {

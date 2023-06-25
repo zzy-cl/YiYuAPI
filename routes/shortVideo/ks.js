@@ -45,7 +45,7 @@ function getDataInfo(url, did, didv) {
                 avatar: res.data.photo.headUrl,
                 cover: res.data.photo.coverUrls[0].url,
                 music: res.data.photo.soundTrack.audioUrls[0].url,
-                video: [res.data.photo.mainMvUrls[0].url],
+                video: res.data.photo.mainMvUrls[0].url
             },
         };
     }).catch(err => {
