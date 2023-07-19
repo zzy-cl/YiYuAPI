@@ -90,7 +90,7 @@ function getRandomStr() {
     const baseStr = 'ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz0123456789=';
     let randomStr = '';
     for (let i = 0; i < 107; i++) {
-        randomStr += baseStr[Math.floor(Math.random() * randomStr.length)];
+        randomStr += baseStr[Math.floor(Math.random() * baseStr.length)];
     }
     return baseStr;
 }
