@@ -14,7 +14,7 @@ function getXG(id) {
     return axios({
         method: 'post', url: 'https://tiktok.iculture.cc/X-Bogus', data: {
             url: `https://www.douyin.com/aweme/v1/web/aweme/detail/?aweme_id=${id}&aid=1128&version_name=23.5.0&device_platform=android&os_version=2333`,
-            user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+            user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.43',
         },
     })
         .then(res => res.data.param)
@@ -29,12 +29,12 @@ function getTTWid() {
             aid: 1768,
             needFid: false,
             service: 'www.ixigua.com',
-            migrate_info: {ticket: '', source: 'node'},
+            migrate_info: { ticket: '', source: 'node' },
             cbUrlProtocol: 'https',
             union: true,
         }),
     })
-        .then(res => res.headers['set-cookie'][0].match(/(?<=ttwid=)\S*(?=;)/g)[0],)
+        .then(res => res.headers['set-cookie'][0].match(/(?<=ttwid=)\S*(?=;)/g)[0])
         .catch(err => console.log(err));
 }
 
@@ -44,7 +44,7 @@ function getDataInfo(url, msToken, ttWid) {
         method: 'get', url: url, headers: {
             Referer: 'https://www.douyin.com/',
             Cookie: `msToken=${msToken}; ttwid=${ttWid}; bd_ticket_guard_client_data=eyJiZC10aWNrZXQtZ3VhcmQtdmVyc2lvbiI6MiwiYmQtdGlja2V0LWd1YXJkLWNsaWVudC1jc3IiOiItLS0tLUJFR0lOIENFUlRJRklDQVRFIFJFUVVFU1QtLS0tLVxyXG5NSUlCRFRDQnRRSUJBREFuTVFzd0NRWURWUVFHRXdKRFRqRVlNQllHQTFVRUF3d1BZbVJmZEdsamEyVjBYMmQxXHJcbllYSmtNRmt3RXdZSEtvWkl6ajBDQVFZSUtvWkl6ajBEQVFjRFFnQUVKUDZzbjNLRlFBNUROSEcyK2F4bXAwNG5cclxud1hBSTZDU1IyZW1sVUE5QTZ4aGQzbVlPUlI4NVRLZ2tXd1FJSmp3Nyszdnc0Z2NNRG5iOTRoS3MvSjFJc3FBc1xyXG5NQ29HQ1NxR1NJYjNEUUVKRGpFZE1Cc3dHUVlEVlIwUkJCSXdFSUlPZDNkM0xtUnZkWGxwYmk1amIyMHdDZ1lJXHJcbktvWkl6ajBFQXdJRFJ3QXdSQUlnVmJkWTI0c0RYS0c0S2h3WlBmOHpxVDRBU0ROamNUb2FFRi9MQnd2QS8xSUNcclxuSURiVmZCUk1PQVB5cWJkcytld1QwSDZqdDg1czZZTVNVZEo5Z2dmOWlmeTBcclxuLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tXHJcbiJ9`,
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.43',
         },
     }).then((res) => {
         if (res.data.aweme_detail.video && !res.data.aweme_detail.images) {
